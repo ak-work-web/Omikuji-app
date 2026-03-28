@@ -3,6 +3,7 @@ package com.example.omikujiapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -68,5 +69,14 @@ private static final String KEY_OMIKUJI_NUMBER = "key_omikuji_number";
         }
         //おみくじ結果を表示する
         resultImageView.setImageResource(resId);
+
+        // 1. View(XML)からボタンを探してController(Java)に紐付ける
+        Button backButton = findViewById(R.id.backButton);
+
+        // 2. ボタンがクリックされた時の「動き」を定義する
+        backButton.setOnClickListener(v -> {
+            // 現在の画面(ResultActivity)を終了して前の画面に戻る
+            finish();
+        });
     }
 }
